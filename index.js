@@ -185,45 +185,6 @@ app.post('/updateData',imageUpload, (req, res) => {
     }
 });
 
-// app.post('/updateData', imageUpload, (req, res) => {
-//     let id = req.body.editid;
-//     if (req.file) {
-//         user.findById(id)
-//             .then((oldRecord) => {
-//                 fs.unlinkSync(oldRecord.image);
-//             }).catch((err) => {
-//                 console.log(err);
-//                 return res.redirect('back');
-//             });
-//         user.findByIdAndUpdate(id, {
-//             name: req.body.name,
-//             price: req.body.price,
-//             pages: req.body.pages,
-//             authore: req.body.authore,
-//             image: req.file.path
-//         }).then((success) => {
-//             console.log("successfully edited");
-//             return res.redirect('/');
-//         }).catch((err) => {
-//             console.log(err);
-//             return res.redirect('back');
-//         });
-//     } else {
-//         user.findByIdAndUpdate(id, {
-//             name: req.body.name,
-//             price: req.body.price,
-//             pages: req.body.pages,
-//             authore: req.body.authore,
-//         }).then((success) => {
-//             console.log("successfully edited");
-//             return res.redirect('/');
-//         }).catch((err) => {
-//             console.log(err);
-//             return res.redirect('back');
-//         });
-//     }
-// });
-
 
 app.listen(port,(err)=>{
     if(err){
