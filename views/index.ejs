@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .box-main {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .box {
+            width: 300px;
+            height: 700px;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 10px;
+            border: 1px solid black;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .img-box img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-around;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <h1>A-Z Library</h1>
+         <div class="col-xl-12 box-main m-2">
+             <% record.map((val,i)=> {i++ %>
+                <div class="box">
+                    <div class="img-box">
+                        <img src="<%= val.image %>" width="100%">
+                    </div>
+                    <div class="content">
+                        <h2>
+                            <%= val.name %>
+                        </h2>
+                        <sapn class="text-secondary">
+                           Rs. <%= val.price %>
+                        </sapn>
+                        <p>
+                           pages :- <%= val.pages %>
+                        </p>
+                        <sapn class="text-info">
+                            <%= val.authore %>
+                        </sapn>
+                    </div>
+                   <div class="d-flex  ">
+                    <button class="btn-danger rounded m-2">
+                        <a href="/deleteData?id=<%= val.id %>">delete</a>
+                    </button>
+                    <button class="btn-primary rounded m-2">
+                        <a href="/editData?id=<%= val.id %>">edit</a>
+                    </button>
+                  
+                   </div>
+
+                </div>
+                    <% }) %>
+         </div>
+            <button class=" mt-3 py-2 btn-info rounded"> <a href="/form">add a new Book</a> </button>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>
